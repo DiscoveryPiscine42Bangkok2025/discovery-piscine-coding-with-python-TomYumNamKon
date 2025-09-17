@@ -1,9 +1,14 @@
-import re
-Message = input("Enter Your Message : ")
+#!/usr/bin/env python3
+import sys
 
-if(Message == ""):
+if len(sys.argv) != 2:
     print("none")
 else:
-    numbers = re.findall("z", Message)  
-    for i in numbers:
-        print("z",end="")
+    s = sys.argv[1]
+    found = False
+    for ch in s:
+        if ch == "z":
+            print("z")
+            found = True
+    if not found:
+        print("none")

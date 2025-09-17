@@ -1,5 +1,9 @@
-Message = input("Enter Your Message : ")
-NewMessage = Message.split()
-print(f"parameters: {len(NewMessage)}")
-for i in NewMessage:
-    print(f"{i}: {len(i)}")
+import sys
+
+if len(sys.argv) == 1:
+    print("none")
+else:
+    params = sys.argv[1:]
+    print(f"parameters: {len(params)}")
+    for p in params:
+        print(f"{p}: {len(p)}")

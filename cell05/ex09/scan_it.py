@@ -1,8 +1,15 @@
+#!/usr/bin/env python3
+
+import sys
 import re
 
-MainMessage = input("Enter Your Main Message : ")
-Message = input("Enter Your Messafe : ")
-if(MainMessage == "" or Message == ""):
+if len(sys.argv) != 3:
     print("none")
-numbers = re.findall(MainMessage, Message)  
-print(len(numbers))
+else:
+    keyword = sys.argv[1]
+    text = sys.argv[2]
+    matches = re.findall(keyword, text)
+    if matches:
+        print(len(matches))
+    else:
+        print("none")

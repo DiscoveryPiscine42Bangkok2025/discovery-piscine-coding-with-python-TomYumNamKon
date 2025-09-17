@@ -1,12 +1,10 @@
-import re 
+#!/usr/bin/env python3
+import sys
 
-Message = input("Enter Your Message : ")
-if(Message == ""):
+if len(sys.argv) == 1:
     print("none")
 else:
-    NewMessage = Message.split(" ")
-    for i in NewMessage:
-        if(re.findall("ism$", i)):
+    for arg in sys.argv[1:]:
+        if arg.endswith("ism"):
             continue
-        else:
-            print(i+"ism")
+        print(arg + "ism")

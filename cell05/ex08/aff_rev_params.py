@@ -1,13 +1,8 @@
-Message = input("Enter Your Message : ")
-NewMessage = Message.split(" ")
-if(NewMessage == [' ']):
-    print("none")
-elif(len(NewMessage) == 1):
+#!/usr/bin/env python3
+import sys
+
+if len(sys.argv) < 3:
     print("none")
 else:
-    i = len(NewMessage)
-    while True:
-        print(NewMessage[i-1])
-        i = i - 1
-        if(i == 0):
-            break
+    for arg in reversed(sys.argv[1:]):
+        print(arg)
