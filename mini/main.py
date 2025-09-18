@@ -11,8 +11,8 @@ def main():
     board1 = """\
              R...
              .K..
-             ..P.
-             ....\
+             ....
+             ...\
              """
     checkmate(board1)  # ควรพิมพ์ Success
 
@@ -147,4 +147,4 @@ Q...\
 if __name__ == "__main__":
     # เรียก main เมื่อรันไฟล์นี้โดยตรง
     main()
-    run_demo()
+    # run_demo()

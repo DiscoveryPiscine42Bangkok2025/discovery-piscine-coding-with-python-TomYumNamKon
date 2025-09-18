@@ -88,6 +88,9 @@ def checkmate(board_str: str):
     mapping = {"K": King, "R": Rook, "B": Bishop, "Q": Queen, "P": Pawn}
 
     for i in range(size):
+        if(size != len(board[i])):
+            print("Error")
+            return
         for j in range(size):
             c = board[i][j]
             if c in mapping:
