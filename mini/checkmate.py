@@ -23,14 +23,14 @@ class Rook(Piece):
         if self.x == king.x:
             step = 1 if king.y > self.y else -1
             for j in range(self.y + step, king.y, step):
-                if board[self.x][j] != ".":      # มีตัวบัง
+                if board[self.x][j] in mapping:      # มีตัวบัง
                     return False
             return True
         # แนวตั้ง (col เดียวกัน)
         if self.y == king.y:
             step = 1 if king.x > self.x else -1
             for i in range(self.x + step, king.x, step):
-                if board[i][self.y] != ".":      # มีตัวบัง
+                if board[i][self.y] in mapping:      # มีตัวบัง
                     return False
             return True
         return False
@@ -49,7 +49,7 @@ class Bishop(Piece):
         step_y = 1 if dy > 0 else -1
         i, j = self.x + step_x, self.y + step_y
         while i != king.x and j != king.y:
-            if board[i][j] != ".":              # มีตัวบัง
+            if board[i][j] in mapping:              # มีตัวบัง
                 return False
             i += step_x
             j += step_y
@@ -78,6 +78,7 @@ class Pawn(Piece):
         ]
 
 
+mapping = {"K": King, "R": Rook, "B": Bishop, "Q": Queen, "P": Pawn}
 def checkmate(board_str: str):
     board = [list(row.strip()) for row in board_str.strip().split("\n")]
     size = len(board)
@@ -85,7 +86,6 @@ def checkmate(board_str: str):
     pieces = []
     king = None
 
-    mapping = {"K": King, "R": Rook, "B": Bishop, "Q": Queen, "P": Pawn}
 
     for i in range(size):
         if(size != len(board[i])):
